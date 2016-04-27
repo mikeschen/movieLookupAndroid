@@ -55,8 +55,9 @@ public class MovieService {
                     JSONObject flicksJSON = resultsJSON.getJSONObject(i);
                     String title = flicksJSON.getString("original_title");
                     String overview = flicksJSON.getString("overview");
+                    String imageUrl = flicksJSON.getString("poster_path");
 
-                    Movies movie = new Movies(title,overview);
+                    Movies movie = new Movies(title,overview, imageUrl);
                     movies.add(movie);
                 }
             }

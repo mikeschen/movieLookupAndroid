@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.guest.moviedatabase.R;
 import com.example.guest.moviedatabase.models.Movies;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -61,9 +62,9 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
         }
 
         public void bindMovie(Movies movie) {
+            Picasso.with(mContext).load(movie.getImageUrl()).into(mMovieImageView);
             mMovieTitleTextView.setText(movie.getTitle());
             mMovieOverviewTextView.setText(movie.getOverview());
-
         }
     }
 }

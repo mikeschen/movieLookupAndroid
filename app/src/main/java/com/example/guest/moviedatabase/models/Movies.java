@@ -6,11 +6,13 @@ package com.example.guest.moviedatabase.models;
 public class Movies {
     private String mTitle;
     private String mOverview;
+    private String mImageUrl;
 
 
-    public Movies(String title, String overview) {
+    public Movies(String title, String overview, String imageUrl) {
         this.mTitle = title;
         this.mOverview = overview;
+        this.mImageUrl = "http://image.tmdb.org/t/p/w500" + imageUrl;
     }
 
     public String getTitle() {
@@ -19,6 +21,10 @@ public class Movies {
 
     public String getOverview() {
         return mOverview;
+    }
+
+    public String getImageUrl() {
+        return mImageUrl;
     }
 
 }
