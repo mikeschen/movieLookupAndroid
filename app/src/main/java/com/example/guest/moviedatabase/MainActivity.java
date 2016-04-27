@@ -3,6 +3,7 @@ package com.example.guest.moviedatabase;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +24,10 @@ public class MainActivity extends AppCompatActivity {
         mSearchButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                String title = mTitleEditText.getText().toString();
+                Log.d("title", title);
                 Intent intent = new Intent(MainActivity.this, ResultsActivity.class);
+                intent.putExtra("title", title);
                 startActivity(intent);
             }
         });
