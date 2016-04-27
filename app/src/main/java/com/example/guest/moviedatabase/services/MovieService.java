@@ -56,7 +56,8 @@ public class MovieService {
                     String title = flicksJSON.getString("original_title");
                     String overview = flicksJSON.getString("overview");
                     String imageUrl = flicksJSON.getString("poster_path");
-
+                    int id = flicksJSON.getInt("id");
+                    Log.d("Id of Movie", id + "");
                     Movies movie = new Movies(title,overview, imageUrl);
                     movies.add(movie);
                 }
