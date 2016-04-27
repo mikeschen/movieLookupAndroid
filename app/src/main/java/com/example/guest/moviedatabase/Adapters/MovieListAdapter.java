@@ -1,6 +1,7 @@
 package com.example.guest.moviedatabase.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,10 @@ import android.widget.TextView;
 
 import com.example.guest.moviedatabase.R;
 import com.example.guest.moviedatabase.models.Movies;
+import com.example.guest.moviedatabase.ui.MovieDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -21,6 +25,9 @@ import butterknife.ButterKnife;
  * Created by Guest on 4/27/16.
  */
 public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.MovieViewHolder> {
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
+
     private ArrayList<Movies> mMovies = new ArrayList<>();
     private Context mContext;
 
@@ -59,10 +66,25 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.Movi
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    int itemPosition = getLayoutPosition();
+                    Intent intent = new Intent(mContext, MovieDetailActivity.class);
+                    intent.putExtra("position", itemPosition + "");
+                    intent.putExtra("movies", Parcels.wrap(mMovies));
+                    mContext.startActivity(intent);
+                }
+            });
         }
 
         public void bindMovie(Movies movie) {
-            Picasso.with(mContext).load(movie.getImageUrl()).into(mMovieImageView);
+            Picasso.with(mContext)
+                    .load(movie.getImageUrl())
+                    .resize(MAX_WIDTH, MAX_HEIGHT)
+//                    .centerCrop()
+                    .into(mMovieImageView);
             mMovieTitleTextView.setText(movie.getTitle());
             mMovieOverviewTextView.setText(movie.getOverview());
         }

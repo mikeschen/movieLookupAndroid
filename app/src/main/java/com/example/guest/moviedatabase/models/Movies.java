@@ -1,8 +1,12 @@
 package com.example.guest.moviedatabase.models;
 
+import org.parceler.Parcel;
+
 /**
  * Created by Guest on 4/27/16.
  */
+
+@Parcel
 public class Movies {
     private String mTitle;
     private String mOverview;
@@ -27,4 +31,7 @@ public class Movies {
         return mImageUrl;
     }
 
+    public Movies() {
+
+    }
 }

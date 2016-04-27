@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String title = mTitleEditText.getText().toString();
                 Log.d("title", title);
-                Intent intent = new Intent(MainActivity.this, ResultsActivity.class);
+                Intent intent = new Intent(MainActivity.this, ResultListActivity.class);
                 intent.putExtra("title", title);
                 startActivity(intent);
             }

@@ -5,9 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.example.guest.moviedatabase.Adapters.MovieListAdapter;
 import com.example.guest.moviedatabase.R;
@@ -23,8 +20,8 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class ResultsActivity extends AppCompatActivity {
-    public static final String TAG = ResultsActivity.class.getSimpleName();
+public class ResultListActivity extends AppCompatActivity {
+    public static final String TAG = ResultListActivity.class.getSimpleName();
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private MovieListAdapter mAdapter;
 
@@ -54,12 +51,12 @@ public class ResultsActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                 mMovies = movieService.processResults(response);
 
-                ResultsActivity.this.runOnUiThread(new Runnable() {
+                ResultListActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         mAdapter = new MovieListAdapter(getApplicationContext(), mMovies);
                         mRecyclerView.setAdapter(mAdapter);
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ResultsActivity.this);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ResultListActivity.this);
                         mRecyclerView.setLayoutManager(layoutManager);
                         mRecyclerView.setHasFixedSize(true);
                     }
