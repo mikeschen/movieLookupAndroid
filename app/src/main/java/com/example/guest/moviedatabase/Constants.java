@@ -5,4 +5,7 @@ package com.example.guest.moviedatabase;
  */
 public class Constants {
     public static final String MOVIE_CONSUMER_KEY = BuildConfig.MOVIE_CONSUMER_KEY;
+
+    public static final String MOVIE_BASE_URL = "https://api.themoviedb.org/3/search/movie";
+    public static final String MOVIE_TITLE_QUERY_PARAMETER = "query";
 }
