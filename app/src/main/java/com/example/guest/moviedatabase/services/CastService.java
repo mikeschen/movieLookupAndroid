@@ -58,7 +58,8 @@ public class CastService {
                     JSONObject castJSON = creditsJSON.getJSONObject(i);
                     String name = castJSON.getString("name");
                     String character = castJSON.getString("character");
-                Cast cast = new Cast(name, character);
+                    String image = castJSON.getString("profile_path");
+                Cast cast = new Cast(name, character, image);
                 casts.add(cast);
                 }
             }

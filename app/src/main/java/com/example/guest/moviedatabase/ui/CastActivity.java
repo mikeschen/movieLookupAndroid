@@ -3,10 +3,13 @@ package com.example.guest.moviedatabase.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.guest.moviedatabase.Adapters.CastListAdapter;
 import com.example.guest.moviedatabase.R;
 import com.example.guest.moviedatabase.models.Cast;
 import com.example.guest.moviedatabase.services.CastService;
@@ -22,7 +25,8 @@ import okhttp3.Response;
 
 public class CastActivity extends AppCompatActivity {
     public ArrayList<Cast> mCasts = new ArrayList<>();
-    @Bind(R.id.castListView) ListView mCastListView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private CastListAdapter mAdapter;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +55,11 @@ public class CastActivity extends AppCompatActivity {
                     CastActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-
-                            String[] castNames = new String[mCasts.size()];
-                            for(int i = 0; i < castNames.length; i++) {
-                                castNames[i] = mCasts.get(i).getName();
-                                Log.d("Hello", castNames[i]);
-                            }
-                            ArrayAdapter adapter = new ArrayAdapter(CastActivity.this,
-                                    android.R.layout.simple_list_item_1, castNames);
-                            mCastListView.setAdapter(adapter);
-
+                            mAdapter = new CastListAdapter(getApplicationContext(), mCasts);
+                            mRecyclerView.setAdapter(mAdapter);
+                            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(CastActivity.this);
+                            mRecyclerView.setLayoutManager(layoutManager);
+                            mRecyclerView.setHasFixedSize(true);
                         }
                     });
                 }
