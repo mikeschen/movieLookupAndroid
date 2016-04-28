@@ -3,6 +3,7 @@ package com.example.guest.moviedatabase.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -27,7 +28,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Guest on 4/28/16.
  */
-public class CastListAdapter extends RecyclerView.Adapter<CastListAdapter.CastViewHolder> {
+public class CastListAdapter extends RecyclerView.Adapter<CastListAdapter.CastViewHolder>{
     private ArrayList<Cast> mCasts = new ArrayList<>();
     private Context mContext;
 
@@ -54,8 +55,7 @@ public class CastListAdapter extends RecyclerView.Adapter<CastListAdapter.CastVi
     }
 
 
-
-    public class CastViewHolder extends RecyclerView.ViewHolder {
+    public class CastViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         @Bind(R.id.actorImageView)
         ImageView mActorImageView;
         @Bind(R.id.actorTextView)
@@ -63,34 +63,30 @@ public class CastListAdapter extends RecyclerView.Adapter<CastListAdapter.CastVi
         @Bind(R.id.characterTextView)
         TextView mCharacterTextView;
         private Context mContext;
-
         private Cast mCast;
-
-
-
 
         public CastViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
 
-//            itemView.setOnClickListener(new View.OnClickListener() {
-//
-//                @Override
-//                public void onClick(View v) {
-//                    String id = mCast.getActorId() + "";
-//                    Log.d("cast id", id + "");
-//                    Intent intent = new Intent(mContext, ActorDetailActivity.class);
-//                    intent.putExtra("id", id + "");
-//                    mContext.startActivity(intent);
-//                }
-//            });
+            itemView.setOnClickListener(this);
         }
 
         public void bindCast(Cast cast) {
+            mCast = cast;
             Picasso.with(mContext).load(cast.getImage()).into(mActorImageView);
             mActorTextView.setText(cast.getName());
             mCharacterTextView.setText(cast.getCharacter());
+        }
+
+        @Override
+        public void onClick(View v) {
+           int id = mCast.getActorId();
+            Log.d("cast id", id + "");
+            Intent intent = new Intent(mContext, ActorDetailActivity.class);
+            intent.putExtra("id", id + "");
+            mContext.startActivity(intent);
         }
     }
 }
