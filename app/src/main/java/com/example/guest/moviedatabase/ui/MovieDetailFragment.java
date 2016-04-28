@@ -60,7 +60,7 @@ public class MovieDetailFragment extends Fragment {
         View.OnClickListener listnr = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int id = mMovie.getId();
+                String id = mMovie.getId() + "";
                 Log.d("movie id", id + "");
                 Intent intent = new Intent(getActivity(), CastActivity.class);
                 intent.putExtra("id", id);

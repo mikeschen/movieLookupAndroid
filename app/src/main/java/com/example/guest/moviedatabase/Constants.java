@@ -11,3 +11,4 @@ public class Constants {
 
     public static final String MOVIE_CAST_URL = "https://api.themoviedb.org/3/movie";
 }
+
