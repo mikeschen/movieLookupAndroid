@@ -28,6 +28,8 @@ public class MovieDetailFragment extends Fragment {
     @Bind(R.id.movieImageView) ImageView mMovieImageView;
     @Bind(R.id.movieTitleTextView) TextView mMovieTitleTextView;
     @Bind(R.id.overviewTextView) TextView mOverviewTextView;
+    @Bind(R.id.dateTextView) TextView mDateTextView;
+    @Bind(R.id.ratingTextView) TextView mRatingTextView;
 
     private Movies mMovie;
 
@@ -59,6 +61,9 @@ public class MovieDetailFragment extends Fragment {
                 .into(mMovieImageView);
         mMovieTitleTextView.setText(mMovie.getTitle());
         mOverviewTextView.setText(mMovie.getOverview());
+        mDateTextView.setText(mMovie.getDate());
+        mRatingTextView.setText("Rating: " + mMovie.getRating() + "/10");
+
         return view;
     }
 

@@ -11,12 +11,15 @@ public class Movies {
     private String mTitle;
     private String mOverview;
     private String mImageUrl;
+    private String mDate;
+    private Double mRating;
 
-
-    public Movies(String title, String overview, String imageUrl) {
+    public Movies(String title, String overview, String imageUrl, String date, Double rating) {
         this.mTitle = title;
         this.mOverview = overview;
         this.mImageUrl = "http://image.tmdb.org/t/p/w500" + imageUrl;
+        this.mDate = date;
+        this.mRating = rating;
     }
 
     public String getTitle() {
@@ -31,7 +34,10 @@ public class Movies {
         return mImageUrl;
     }
 
-    public Movies() {
+    public String getDate() { return mDate; }
 
+    public Double getRating() { return mRating; }
+
+    public Movies() {
     }
 }
