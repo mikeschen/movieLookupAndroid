@@ -13,13 +13,15 @@ public class Movies {
     private String mImageUrl;
     private String mDate;
     private Double mRating;
+    private int mId;
 
-    public Movies(String title, String overview, String imageUrl, String date, Double rating) {
+    public Movies(String title, String overview, String imageUrl, String date, Double rating, int id) {
         this.mTitle = title;
         this.mOverview = overview;
         this.mImageUrl = "http://image.tmdb.org/t/p/w500" + imageUrl;
         this.mDate = date;
         this.mRating = rating;
+        this.mId = id;
     }
 
     public String getTitle() {
@@ -37,6 +39,8 @@ public class Movies {
     public String getDate() { return mDate; }
 
     public Double getRating() { return mRating; }
+
+    public int getId() { return mId; }
 
     public Movies() {
     }

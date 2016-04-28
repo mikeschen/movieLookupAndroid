@@ -41,27 +41,6 @@ public class MovieService {
 
         Call call = client.newCall(request);
         call.enqueue(callback);
-//        findCast(String title);
-//
-//        public static void findCast(String title, Callback callback) {
-//        String CONSUMER_KEY = Constants.MOVIE_CONSUMER_KEY;
-//
-//        OkHttpClient client = new OkHttpClient.Builder()
-//                .build();
-//
-//        HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.MOVIE_BASE_URL).newBuilder();
-//        urlBuilder.addQueryParameter("api_key", CONSUMER_KEY);
-//        urlBuilder.addQueryParameter(Constants.MOVIE_TITLE_QUERY_PARAMETER, title);
-//
-//        String url = urlBuilder.build().toString();
-//        Log.d("urlName", url);
-//        Request request= new Request.Builder()
-//                .url(url)
-//                .build();
-//
-//        Call call = client.newCall(request);
-//        call.enqueue(callback);
-//        }
     }
 
     public ArrayList<Movies> processResults(Response response) {
@@ -81,7 +60,7 @@ public class MovieService {
                     double rating = flicksJSON.getDouble("vote_average");
                     int id = flicksJSON.getInt("id");
                     Log.d("Rating", rating + "");
-                    Movies movie = new Movies(title,overview, imageUrl, date, rating);
+                    Movies movie = new Movies(title,overview, imageUrl, date, rating, id);
                     movies.add(movie);
                 }
             }
