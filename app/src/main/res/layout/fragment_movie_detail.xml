@@ -23,7 +23,7 @@ tools:context="com.example.guest.moviedatabase.ui.MovieDetailFragment">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="166dp"
+            android:layout_height="181dp"
             android:background="@android:color/white"
             android:paddingTop="20dp"
             android:paddingLeft="10dp"
@@ -35,22 +35,14 @@ tools:context="com.example.guest.moviedatabase.ui.MovieDetailFragment">
                 android:layout_height="wrap_content"
                 android:text="Movie Title"
                 android:id="@+id/movieTitleTextView"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:textSize="20sp"
                 android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Overview"
-                android:id="@+id/overviewTextView"
-                android:textColor="@color/colorAccent"
                 android:textStyle="bold"
-                android:layout_below="@+id/movieTitleTextView"
+                android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
+
+
 
 
 
@@ -59,10 +51,10 @@ tools:context="com.example.guest.moviedatabase.ui.MovieDetailFragment">
                 android:layout_height="wrap_content"
                 android:text="Date"
                 android:id="@+id/dateTextView"
+                android:textStyle="bold"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textStyle="bold" />
+                android:layout_alignRight="@+id/movieTitleTextView"
+                android:layout_alignEnd="@+id/movieTitleTextView" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -70,10 +62,22 @@ tools:context="com.example.guest.moviedatabase.ui.MovieDetailFragment">
                 android:text="Rating"
                 android:id="@+id/ratingTextView"
                 android:textStyle="bold"
-                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/movieTitleTextView"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginBottom="38dp" />
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Overview"
+                android:id="@+id/overviewTextView"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:layout_below="@+id/ratingTextView"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
         </RelativeLayout>
 
         <Button

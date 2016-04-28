@@ -7,11 +7,13 @@ public class Cast {
     private String mName;
     private String mCharacter;
     private String mImage;
+    private int mActorId;
 
-    public Cast(String name, String character, String image) {
+    public Cast(String name, String character, String image, int actorId) {
         this.mName = name;
         this.mCharacter = character;
         this.mImage = "http://image.tmdb.org/t/p/w185" + image;
+        this.mActorId = actorId;
     }
 
     public String getName() {
@@ -24,5 +26,9 @@ public class Cast {
 
     public String getImage() {
         return mImage;
+    }
+
+    public int getActorId() {
+        return mActorId;
     }
 }

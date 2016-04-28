@@ -1,7 +1,9 @@
 package com.example.guest.moviedatabase.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,8 @@ import android.widget.TextView;
 
 import com.example.guest.moviedatabase.R;
 import com.example.guest.moviedatabase.models.Cast;
+import com.example.guest.moviedatabase.models.Movies;
+import com.example.guest.moviedatabase.ui.ActorDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -47,16 +51,33 @@ public class CastListAdapter extends RecyclerView.Adapter<CastListAdapter.CastVi
     }
 
     public class CastViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.actorImageView) ImageView mActorImageView;
-        @Bind(R.id.actorTextView) TextView mActorTextView;
-        @Bind(R.id.characterTextView) TextView mCharacterTextView;
+        @Bind(R.id.actorImageView)
+        ImageView mActorImageView;
+        @Bind(R.id.actorTextView)
+        TextView mActorTextView;
+        @Bind(R.id.characterTextView)
+        TextView mCharacterTextView;
         private Context mContext;
+
+        private Cast mCast;
 
 
         public CastViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    String id = mCast.getActorId() + "";
+                    Log.d("cast id", id + "");
+                    Intent intent = new Intent(mContext, ActorDetailActivity.class);
+                    intent.putExtra("id", id + "");
+                    mContext.startActivity(intent);
+                }
+            });
         }
 
         public void bindCast(Cast cast) {
@@ -65,5 +86,4 @@ public class CastListAdapter extends RecyclerView.Adapter<CastListAdapter.CastVi
             mCharacterTextView.setText(cast.getCharacter());
         }
     }
-
 }

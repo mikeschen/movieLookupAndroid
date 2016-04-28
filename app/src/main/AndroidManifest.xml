@@ -19,7 +19,8 @@
         </activity>
         <activity android:name=".ui.ResultListActivity" />
         <activity android:name=".ui.MovieDetailActivity" />
-        <activity android:name=".ui.CastActivity"></activity>
+        <activity android:name=".ui.CastActivity" />
+        <activity android:name=".ui.ActorDetailActivity"></activity>
     </application>
 
 </manifest>
