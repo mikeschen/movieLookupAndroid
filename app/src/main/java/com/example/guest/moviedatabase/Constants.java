@@ -10,5 +10,7 @@ public class Constants {
     public static final String MOVIE_TITLE_QUERY_PARAMETER = "query";
 
     public static final String MOVIE_CAST_URL = "https://api.themoviedb.org/3/movie";
+
+    public static final String MOVIE_ACTOR_URL = "http://api.themoviedb.org/3/person";
 }
 

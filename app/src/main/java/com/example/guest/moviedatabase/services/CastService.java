@@ -59,8 +59,8 @@ public class CastService {
                     String name = castJSON.getString("name");
                     String character = castJSON.getString("character");
                     String image = castJSON.getString("profile_path");
-                    int actorId = castJSON.getInt("id");
-                Cast cast = new Cast(name, character, image, actorId);
+                    int id = castJSON.getInt("id");
+                Cast cast = new Cast(name, character, image, id);
                 casts.add(cast);
                 }
             }

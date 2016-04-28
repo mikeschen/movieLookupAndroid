@@ -82,7 +82,7 @@ public class CastListAdapter extends RecyclerView.Adapter<CastListAdapter.CastVi
 
         @Override
         public void onClick(View v) {
-           int id = mCast.getActorId();
+           String id = mCast.getActorId() + "";
             Log.d("cast id", id + "");
             Intent intent = new Intent(mContext, ActorDetailActivity.class);
             intent.putExtra("id", id + "");

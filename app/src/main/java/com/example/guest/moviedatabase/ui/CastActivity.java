@@ -42,7 +42,7 @@ public class CastActivity extends AppCompatActivity {
         private void getCast(String id) {
             final CastService castService = new CastService();
 
-            CastService.findCast(id, new Callback() {
+            castService.findCast(id, new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
                     e.printStackTrace();
