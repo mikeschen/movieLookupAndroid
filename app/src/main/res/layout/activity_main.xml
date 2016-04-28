@@ -25,10 +25,12 @@
         android:layout_height="40sp"
         android:id="@+id/titleEditText"
         android:hint="Movie Title Search"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:background="#ffffff"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="111dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -36,7 +38,8 @@
         android:text="Find Movie"
         android:id="@+id/searchButton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#FAFCF1"/>
 
 
 </RelativeLayout>

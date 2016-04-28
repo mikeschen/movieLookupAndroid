@@ -2,6 +2,7 @@ package com.example.guest.moviedatabase.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +16,8 @@ import com.example.guest.moviedatabase.models.Cast;
 import com.example.guest.moviedatabase.models.Movies;
 import com.example.guest.moviedatabase.ui.ActorDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -50,6 +53,8 @@ public class CastListAdapter extends RecyclerView.Adapter<CastListAdapter.CastVi
         return mCasts.size();
     }
 
+
+
     public class CastViewHolder extends RecyclerView.ViewHolder {
         @Bind(R.id.actorImageView)
         ImageView mActorImageView;
@@ -62,22 +67,24 @@ public class CastListAdapter extends RecyclerView.Adapter<CastListAdapter.CastVi
         private Cast mCast;
 
 
+
+
         public CastViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    String id = mCast.getActorId() + "";
-                    Log.d("cast id", id + "");
-                    Intent intent = new Intent(mContext, ActorDetailActivity.class);
-                    intent.putExtra("id", id + "");
-                    mContext.startActivity(intent);
-                }
-            });
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//
+//                @Override
+//                public void onClick(View v) {
+//                    String id = mCast.getActorId() + "";
+//                    Log.d("cast id", id + "");
+//                    Intent intent = new Intent(mContext, ActorDetailActivity.class);
+//                    intent.putExtra("id", id + "");
+//                    mContext.startActivity(intent);
+//                }
+//            });
         }
 
         public void bindCast(Cast cast) {

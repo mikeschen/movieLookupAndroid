@@ -41,11 +41,6 @@ tools:context="com.example.guest.moviedatabase.ui.MovieDetailFragment">
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
-
-
-
-
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -85,6 +80,7 @@ tools:context="com.example.guest.moviedatabase.ui.MovieDetailFragment">
             android:layout_height="wrap_content"
             android:text="Find Cast"
             android:id="@+id/castButton"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:background="#FAFCF1"/>
     </LinearLayout>
 </FrameLayout>
